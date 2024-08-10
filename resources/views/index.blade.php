@@ -14,8 +14,8 @@
 
     <div class="d-flex justify-content-center mb-3">
         <input type="text" class="form-control me-2" placeholder="Search Contacts..." style="width: 60%;">
-        <button class="btn btn-secondary" onclick="$nameSort">Sort by Name</button>
-        <button class="btn btn-secondary">Sort by Date</button>
+        <a href="{{ url('/contacts?sort=name') }}" class="btn btn-secondary">Sort by Name</a>
+        <a href="{{ url('/contacts?sort=date') }}" class="btn btn-secondary">Sort by Date</a>
     </div>
 
     <div class="text-center">

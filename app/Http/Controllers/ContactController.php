@@ -16,15 +16,23 @@ class ContactController extends Controller
         return redirect('/contacts');
 
     }
-    function index(){
-        $contacts = DB::table('contacts')->get()->toArray();
-        return view('index',compact('contacts'));
+    function index( Request $request){
+        $sort = $request->query('sort');
 
-        $nameSort = DB::table('contacts')->latest();
-        return view('index',$nameSort);
+//        $contacts = DB::table('contacts')->get()->toArray();
+//        return view('index',compact('contacts'));
 
-        $dateSort = DB::table('contacts')->oldest();
-        return view('index',$dateSort);
+        if ($sort == 'name') {
+            $contacts = DB::table('contacts')->orderBy('name')->get();
+        }
+        elseif ($sort == 'date') {
+            $contacts = DB::table('contacts')->orderBy('created_at', 'desc')->get();
+        }
+        else {
+            $contacts = DB::table('contacts')->get()->toArray();
+        }
+
+        return view('index', compact('contacts'));
 
     }
 }
