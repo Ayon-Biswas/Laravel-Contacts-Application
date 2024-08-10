@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-Route::get("/create",[ContactController::class,"page"]);
+Route::get('/create', function () {
+    return view('create');
+});
+Route::post("/create",[ContactController::class,"create"]);
+Route::get("/contacts",[ContactController::class,"view"]);

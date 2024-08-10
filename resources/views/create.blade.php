@@ -9,23 +9,24 @@
 </head>
 <body>
 
-<form class="form-control container justify-content-center mt-5">
+<form action="/create" method="POST" class="form-control container justify-content-center mt-5">
+    @csrf
     <h1 class="text-center">Create Contact</h1>
     <div class="mb-3 mt-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="text" class="form-control" id="name" name="name">
     </div>
     <div class="mb-3 mt-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="email" class="form-control" id="email" name="email">
     </div>
     <div class="mb-3 mt-3">
         <label for="exampleInputPassword1" class="form-label">Phone</label>
-        <input type="text" class="form-control" id="exampleInputPassword1">
+        <input type="text" class="form-control" id="phone" name="phone">
     </div>
     <div class="mb-3 mt-3">
         <label for="exampleInputPassword1" class="form-label">Address</label>
-        <input type="text" class="form-control" id="exampleInputPassword1">
+        <input type="text" class="form-control" id="address" name="address">
     </div>
     <div class="text-center">
         <button type="submit" class="btn btn-primary text-center">Submit</button>
