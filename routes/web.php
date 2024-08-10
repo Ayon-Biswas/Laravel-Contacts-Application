@@ -18,4 +18,4 @@ Route::get('/create', function () {
     return view('create');
 });
 Route::post("/create",[ContactController::class,"create"]);
-Route::get("/contacts",[ContactController::class,"view"]);
+Route::get("/contacts",[ContactController::class,"index"]);

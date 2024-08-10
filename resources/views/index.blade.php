@@ -8,32 +8,45 @@
     <title>All Contacts</title>
 </head>
 <body>
-<table class="table mt-5">
+
+<table class="table mt-5 table-bordered ">
     <h1 class="text-center">All Contact</h1>
+
+    <div class="d-flex justify-content-center mb-3">
+        <input type="text" class="form-control me-2" placeholder="Search Contacts..." style="width: 60%;">
+        <button class="btn btn-secondary" onclick="$nameSort">Sort by Name</button>
+        <button class="btn btn-secondary">Sort by Date</button>
+    </div>
+
+    <div class="text-center">
+        <a href="{{ url('/create') }}" class="btn btn-primary">Add</a>
+    </div>
     <thead>
     <tr>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
+        @foreach($contacts as $row)
+            <tr>
+            <td>{{$row->name}}</td>
+            <td>{{$row->email}}</td>
+            <td>{{$row->phone}}</td>
+            <td>{{$row->address}}</td>
+            <td></td>
+            <td></td>
+            </tr>
+        @endforeach
     </tr>
     </tbody>
 </table>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

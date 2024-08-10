@@ -14,19 +14,19 @@
     <h1 class="text-center">Create Contact</h1>
     <div class="mb-3 mt-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name">
+        <input type="text" class="form-control"  name="name">
     </div>
     <div class="mb-3 mt-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" name="email">
+        <input type="email" class="form-control"  name="email">
     </div>
     <div class="mb-3 mt-3">
         <label for="exampleInputPassword1" class="form-label">Phone</label>
-        <input type="text" class="form-control" id="phone" name="phone">
+        <input type="text" class="form-control"  name="phone">
     </div>
     <div class="mb-3 mt-3">
         <label for="exampleInputPassword1" class="form-label">Address</label>
-        <input type="text" class="form-control" id="address" name="address">
+        <input type="text" class="form-control"  name="address">
     </div>
     <div class="text-center">
         <button type="submit" class="btn btn-primary text-center">Submit</button>

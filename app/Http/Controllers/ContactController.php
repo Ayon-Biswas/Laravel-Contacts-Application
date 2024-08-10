@@ -16,8 +16,15 @@ class ContactController extends Controller
         return redirect('/contacts');
 
     }
-    function view(){
+    function index(){
+        $contacts = DB::table('contacts')->get()->toArray();
+        return view('index',compact('contacts'));
 
-        return view('index');
+        $nameSort = DB::table('contacts')->latest();
+        return view('index',$nameSort);
+
+        $dateSort = DB::table('contacts')->oldest();
+        return view('index',$dateSort);
+
     }
 }
