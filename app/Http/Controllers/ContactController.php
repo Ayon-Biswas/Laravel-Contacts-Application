@@ -19,9 +19,6 @@ class ContactController extends Controller
     function index( Request $request){
         $sort = $request->query('sort');
 
-//        $contacts = DB::table('contacts')->get()->toArray();
-//        return view('index',compact('contacts'));
-
         if ($sort == 'name') {
             $contacts = DB::table('contacts')->orderBy('name')->get();
         }
@@ -34,5 +31,15 @@ class ContactController extends Controller
 
         return view('index', compact('contacts'));
 
+    }
+    function show(Request $request){
+        $id = $request->id;
+        $contactShow = DB::table('contacts')->where('id', $id)->get()->toArray();
+
+        return view('show', compact('contactShow'));
+    }
+    function edit(Request $request){
+        $id = $request->id;
+        $contactEdit
     }
 }

@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/create', function () {
+Route::get('/contacts/create', function () {
     return view('create');
 });
-Route::post("/create",[ContactController::class,"create"]);
 Route::get("/contacts",[ContactController::class,"index"]);
+Route::post("/contacts/create",[ContactController::class,"create"]);
+Route::get("/contacts/{id}",[ContactController::class,"show"]);
+Route::get("/contacts/{id}/edit",[ContactController::class,"edit"]);

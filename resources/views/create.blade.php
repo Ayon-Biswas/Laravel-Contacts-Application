@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="/create" method="POST" class="form-control container justify-content-center mt-5">
+<form action="/contacts/create" method="POST" class="form-control container justify-content-center mt-5">
     @csrf
     <h1 class="text-center">Create Contact</h1>
     <div class="mb-3 mt-3">

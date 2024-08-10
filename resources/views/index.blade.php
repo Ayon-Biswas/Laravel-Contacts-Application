@@ -13,13 +13,14 @@
     <h1 class="text-center">All Contact</h1>
 
     <div class="d-flex justify-content-center mb-3">
-        <input type="text" class="form-control me-2" placeholder="Search Contacts..." style="width: 60%;">
+        <input type="text" class="form-control me-2" name="search" type="search" placeholder="Search Contacts..." style="width: 45%;">
+        <button class="btn btn-primary" type="submit">search</button>
         <a href="{{ url('/contacts?sort=name') }}" class="btn btn-secondary">Sort by Name</a>
         <a href="{{ url('/contacts?sort=date') }}" class="btn btn-secondary">Sort by Date</a>
     </div>
 
     <div class="text-center">
-        <a href="{{ url('/create') }}" class="btn btn-primary">Add</a>
+        <a href="{{ url('contacts/create') }}" class="btn btn-primary">Add</a>
     </div>
     <thead>
     <tr>
@@ -27,7 +28,6 @@
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
         <th scope="col">Address</th>
-        <th scope="col">Edit</th>
         <th scope="col">Delete</th>
     </tr>
     </thead>
@@ -39,7 +39,6 @@
             <td>{{$row->email}}</td>
             <td>{{$row->phone}}</td>
             <td>{{$row->address}}</td>
-            <td></td>
             <td></td>
             </tr>
         @endforeach
