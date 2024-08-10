@@ -30,6 +30,7 @@
             <td>{{$row->phone}}</td>
             <td>{{$row->address}}</td>
             <td>{{$row->created_at}}</td>
+            <td>{{$row->created_at}}</td>
         </tr>
         @endforeach
         </tr>

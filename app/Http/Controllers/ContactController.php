@@ -18,12 +18,19 @@ class ContactController extends Controller
     }
     function index( Request $request){
         $sort = $request->query('sort');
+        $search = $request->input('search');
 
         if ($sort == 'name') {
             $contacts = DB::table('contacts')->orderBy('name')->get();
         }
         elseif ($sort == 'date') {
             $contacts = DB::table('contacts')->orderBy('created_at', 'desc')->get();
+        }
+        elseif(!empty($search)){
+            $contacts = DB::table('contacts')
+                ->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('email', 'LIKE', "%{$search}%")
+                ->get();
         }
         else {
             $contacts = DB::table('contacts')->get()->toArray();
@@ -52,4 +59,9 @@ class ContactController extends Controller
                 'address'=> $request->input('address')]);
         return redirect('/contacts');
     }
-}//$updateContact[0]->id
+    function deleteContact(Request $request){
+        $result = DB::table('contacts')
+            ->where('id','=', $request->id)
+            ->delete();
+    }
+}
