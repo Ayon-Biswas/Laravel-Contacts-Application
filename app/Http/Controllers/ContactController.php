@@ -43,4 +43,13 @@ class ContactController extends Controller
         $showEditForm = DB::table('contacts')->where('id', $id)->get()->toArray();
         return view("edit",compact('showEditForm'));
     }
-}
+    function updateContact(Request $request){
+        $result = DB::table('contacts')
+            ->where('id','=',$request->id)
+            ->update(['name'=>$request->input('name'),
+                'email'=>$request->input('email'),
+                'phone'=>$request->input('phone'),
+                'address'=> $request->input('address')]);
+        return redirect('/contacts');
+    }
+}//$updateContact[0]->id
