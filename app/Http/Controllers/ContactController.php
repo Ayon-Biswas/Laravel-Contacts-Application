@@ -38,8 +38,9 @@ class ContactController extends Controller
 
         return view('show', compact('contactShow'));
     }
-    function edit(Request $request){
+    function showEditForm(Request $request){
         $id = $request->id;
-        $contactEdit
+        $showEditForm = DB::table('contacts')->where('id', $id)->get()->toArray();
+        return view("edit",compact('showEditForm'));
     }
 }

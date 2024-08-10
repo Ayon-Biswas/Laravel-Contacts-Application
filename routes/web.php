@@ -20,4 +20,5 @@ Route::get('/contacts/create', function () {
 Route::get("/contacts",[ContactController::class,"index"]);
 Route::post("/contacts/create",[ContactController::class,"create"]);
 Route::get("/contacts/{id}",[ContactController::class,"show"]);
-Route::get("/contacts/{id}/edit",[ContactController::class,"edit"]);
+Route::get("/contacts/{id}/edit",[ContactController::class,"showEditForm"]);
+Route::put("/contacts/{id}/edit",[ContactController::class,"showEditForm"]);
