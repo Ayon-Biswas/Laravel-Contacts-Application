@@ -14,19 +14,15 @@
 
     <div class="d-flex justify-content-center mb-3">
         <form action="{{ url('/contacts') }}" method="GET" class="d-flex">
-            <input type="text" name="search" class="form-control me-2" placeholder="Search Contacts..." style="width: 60%;">
+            <input type="text" name="search" class="form-control me-2" placeholder="Search Contacts..." style="width: 45%;">
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
-
-        {{--            <input class="form-control me-2" name="search" type="search" placeholder="Search Contacts..." style="width: 45%;">--}}
-{{--            <a href="{{ url('/contacts?search') }}" class="btn btn-primary" type="submit">search</a>--}}
-
-        <a href="{{ url('/contacts?sort=name') }}" class="btn btn-secondary">Sort by Name</a>
-        <a href="{{ url('/contacts?sort=date') }}" class="btn btn-secondary">Sort by Date</a>
     </div>
 
     <div class="text-center">
-        <a href="{{ url('contacts/create') }}" class="btn btn-primary">Add</a>
+        <a href="{{ url('contacts/create') }}" class="btn btn-primary">Add Contact</a>
+        <a href="{{ url('/contacts?sort=name') }}" class="btn btn-secondary">Sort by Name</a>
+        <a href="{{ url('/contacts?sort=date') }}" class="btn btn-secondary">Sort by Date</a>
     </div>
     <thead>
     <tr>
@@ -34,6 +30,8 @@
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
         <th scope="col">Address</th>
+        <th scope="col">Show</th>
+        <th scope="col">Edit</th>
         <th scope="col">Delete</th>
     </tr>
     </thead>
@@ -45,6 +43,15 @@
             <td>{{$row->email}}</td>
             <td>{{$row->phone}}</td>
             <td>{{$row->address}}</td>
+            <td><a class="btn btn-info" href="{{url('/contacts/'.$row->id)}}">Show</a></td>
+            <td><a class="btn btn-warning" href="{{url('/contacts/'.$row->id.'/edit')}}">Edit</a></td>
+            <td>
+                <form action="{{ url('/contacts/' . $row->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
             </tr>
         @endforeach
     </tr>

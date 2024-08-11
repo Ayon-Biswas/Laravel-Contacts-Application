@@ -60,8 +60,10 @@ class ContactController extends Controller
         return redirect('/contacts');
     }
     function deleteContact(Request $request){
+        $id = $request->id;
         $result = DB::table('contacts')
-            ->where('id','=', $request->id)
+            ->where('id','=', $id)
             ->delete();
+        return redirect('/contacts');
     }
 }
